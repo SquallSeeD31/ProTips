@@ -1,0 +1,64 @@
+=== ProTips Design Doc ===
+
+
+TipGroup Class
+String group;
+int interval;
+int next;
+HashMap<String, String> tips;
+String color;
+String world;
+
+/protip
+/protips
+
+=== Protips Help ===
+Parameters in &i<angle brackets>&x are required; parameters in &i[square brackets]&x are optional.
+Most commands have a shorthand form: "&i-h|elp&x" indicates that you could use &i-h&x or &ihelp
+/protip &i-o|n/ff&x - &i-o&x toggles receiving tips; can optionally specify &ion&x or &ioff
+/protip &i-h|elp [category]&x - Specify a category to see its commands: &itip&x, &igroup&x, &ilist&x, &iadmin
+
+=== Protips Tip Commands ===
+/protip &i-t|ip new <label> <tip>&x - Add a new tip with &i<label>
+/protip &i-t|ip del|ete <label>&x - Delete the tip with &i<label>
+/protip &i-t|ip mod|ify <label> <tip>&x - Change the tip with &i<label>&x to &i<tip>
+/protip &i-t|ip show <label>&x - Show the tip with &i<label>
+
+=== Protips List Commands ===
+/protip &i-l|ist tips&x - List all tip labels
+/protip &i-l|ist groups [group]&x - List all groups, or list tip labels belonging to &i[group]&x if specified
+
+=== Protips Group Commands ===
+/protip &i-g|roup new <group> [interval] [color] [world]&x - Create a new &i<group>&x; leaving options blank uses the defaults
+/protip &i-g|roup del|ete <group>&x - Delete &i<group>
+/protip &i-g|roup mod|ify <flag> <newvalue>&x - Changes group flags, acceptable flags are &iname&x, &iinterval&x, &icolor&x, or &iworld
+/protip &i-g|roup add <group> <labels>...&x - Add a list of &i<labels>&x to &i<group>
+/protip &i-g|roup rem|ove <group> <labels>...&x - Remove a list of &i<labels>&x from &i<group>
+
+=== Protips Admin Commands ===
+/protip &i-f|lush&x - Save all in-game memory to config.yml (overwrites changes made to file)
+/protip &i-r|eload&x - Load everything from config.yml into memory (overwrites unsaved changes made in memory)
+/protip &i-s|end <name> <label>&x - Send the tip with &i<label>&x to &i<name>
+
+players:
+    showtips:
+messages:
+    tips:
+	    <label>: '&7This is a tip that can be defined.'
+		<label2>: '&cThis is another tip.'
+    global:
+		name:
+	    override:
+	    interval:
+		color: AQUA
+		world: world
+		tips: [tutorial, motd]
+	groups:
+	    <group>:
+		    interval:
+			color: null
+			tips: [label, label2, tutorial, motd]
+			world: world
+		Citizen:
+		Moderator:
+		Admin:

@@ -1,0 +1,11 @@
+name: Protips
+main: cc.co.squallseed31.protips.Protips
+version: 0.0.1.9
+author: SquallSeeD31
+commands:
+  protips:
+    description: Alias for /protip
+    usage: /<command> help for usage details
+  protip:
+    description: Command-line access to Protips functions.
+    usage: /<command> help for usage details

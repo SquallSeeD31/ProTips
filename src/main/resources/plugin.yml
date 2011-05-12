@@ -1,6 +1,6 @@
 name: Protips
-main: cc.co.squallseed31.protips.Protips
-version: 0.0.1.9
+main: net.thedarktide.squallseed31.protips.Protips
+version: 0.2.0.10
 author: SquallSeeD31
 commands:
   protips:

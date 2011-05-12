@@ -1,0 +1,11 @@
+messages:
+    global:
+        color: §b
+options:
+    tag: '&b[Protip]'
+    global:
+        override: false
+        name: Global
+    defaultWorld: world
+    log: true
+    consoleSender: SERVER

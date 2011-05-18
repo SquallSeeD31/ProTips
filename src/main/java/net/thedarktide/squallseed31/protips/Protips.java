@@ -94,6 +94,19 @@ public class Protips extends JavaPlugin {
       }
   }
   
+  public static String format(String message) {
+	  return format(message, Config.messageColor);
+  }
+  
+  public static String format(String message, String xColor) {
+	    message = message.replaceAll("&([0-9a-fA-F])", "\u00A7$1") + " ";
+	    message = message.replaceAll("&x", xColor);
+	    message = message.replaceAll("&i", Config.infoColor);
+	    message = message.replaceAll("&m", Config.messageColor);
+	    message = message.replaceAll("''", "'");
+	    return message;
+  }
+  
   public static void debug(String message) {
 	  if (debugging) {
 		  log.info(message);

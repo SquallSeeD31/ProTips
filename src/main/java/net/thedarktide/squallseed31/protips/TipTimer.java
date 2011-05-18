@@ -35,9 +35,7 @@ class TipTimer implements Runnable {
 			String buildLine = Config.lineTag + " " + tg.getColor();
 			String randomTip = tg.getRandom();
 			if (randomTip == null) return;
-			buildLine += randomTip.replaceAll("&([0-9a-fA-F])", "\u00A7$1") + " ";
-			buildLine = buildLine.replaceAll("&x", tg.getColor());
-			buildLine = buildLine.replaceAll("''", "'");
+			buildLine += Protips.format(randomTip, tg.getColor());
 			if (Config.logProtips)
 				Protips.log.info(buildLine.replaceAll("(?i)\u00A7[0-F]", ""));
 			for (Player p : plugin.getServer().getOnlinePlayers()) {

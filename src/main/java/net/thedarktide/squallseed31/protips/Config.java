@@ -45,6 +45,8 @@ public class Config {
 	protected static String defaultName = "Global";
 	protected static String defaultColor = ChatColor.AQUA.toString();
 	protected static int defaultInterval = 300;
+	protected static String infoColor = ChatColor.GOLD.toString();
+	protected static String messageColor = ChatColor.GRAY.toString();
 	protected static boolean globalOverride = false;
 	protected static String lineTag = defaultColor + "[Protip]";
 	protected static String defaultWorld = "world";
@@ -62,6 +64,8 @@ public class Config {
 		
 		defaultName = config.getString("options.global.name", defaultName);
 		defaultColor = getConfigColor("messages.global.color", defaultColor);
+		infoColor = getConfigColor("options.color.info", infoColor);
+		messageColor = getConfigColor("options.color.message", messageColor);
 		defaultInterval = config.getInt("messages.global.interval", defaultInterval);
 		defaultWorld = config.getString("options.defaultWorld", plugin.getServer().getWorlds().get(0).getName());
 		consoleSender = config.getString("options.consoleSender", consoleSender);
@@ -80,6 +84,8 @@ public class Config {
 		config.setProperty("options.log", logProtips);
 		config.setProperty("options.tag", lineTag.replace("\u00A7", "&"));
 		config.setProperty("options.defaultWorld", defaultWorld);
+		config.setProperty("options.color.info", getColorName(infoColor));
+		config.setProperty("options.color.message", getColorName(messageColor));
 		saveAllTips();
 		saveAllGroups();
 		config.save();
